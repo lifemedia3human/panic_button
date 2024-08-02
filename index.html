@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-right {
+      color: #006400;
+      font-weight: bold;
+    }
+
+    .header-logo {
+      margin-right: 10px;
+      width: 50px;
+    }
+
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #006400;
+      margin-top: 10px;
+    }
+
+    .sidebar {
+      background-color: #C6E5FF;
+      padding: 5px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .sidebar-logo {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    .sidebar-title {
+      font-size: 20px;
+      margin-top: 5px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar-menu a {
+      display: block;
+      padding: 8px 16px; /* Mengurangi padding untuk membuat latar belakang lebih kecil */
+      color: #000;
+      text-decoration: none;
+    }
+
+    .sidebar-menu a:hover {
+      background-color: #5e6278;
+    }
+
+    .main-content {
+      padding: 20px;
+      margin-left: 200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card {
+      background-color: #fff;
+      text-align: center;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      width: 200px; /* Setiap kartu akan menempati setengah dari lebar konten utama dengan jarak 20px */
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #006400;
+      margin-bottom: 10px;
+    }
+
+    .card-content {
+      margin-bottom: 10px;
+    }
+
+    .card-value {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #006400;
+    }
+
+    .card-text {
+      font-size: 12px;
+      color: #333;
+    }
+
+    /* Updated CSS for sidebar button */
+    .sidebar-button {
+      border: none;
+      color: white;
+      padding: 10px; /* Mengurangi padding untuk membuat latar belakang lebih kecil */
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      background-color: #006400; /* Warna hijau */
+    }
+
+    .sidebar-button:hover {
+      background-color: rgba(0, 100, 0, 0.8); /* Warna hijau lebih gelap saat dihover */
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <button class="sidebar-button" onclick="w3_open()"><i class="fas fa-bars"></i></button>
+      <img src="house.png" alt="Logo" class="header-logo">
+      <div class="header-title">Dashboard</div>
+    </div>
+    <!-- <div class="header-right">
+      <p>Life Media</p>
+    </div> -->
+  </header>
+
+  <div class="sidebar" id="mySidebar">
+    <div class="sidebar-header">
+      <img src="house.png" alt="Logo" class="sidebar-logo">
+      <div class="sidebar-title">Panic Button</div>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="/button/rekap.php">Rekap Data</a></li>
+      <li><a href="/button/monitor.php">Monitor</a></li>
+      <li><a href="button/registrasi.php">User Registrations</a></li>
+      <li><a href="button/esp_iot/index.php">Button</a></li>
+    </ul>
+    <!-- Button to close sidebar -->
+    <button onclick="w3_close()">Close &times;</button>
+  </div>
+
+  <!-- Cards -->
+  <div class="main-content">
+    <div class="card">
+      <div class="card-title">Rekap Data</div>
+      <div class="card-content">
+        <div class="card-value">150</div>
+        <a href="/button/rekap.php">More info</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Monitor</div>
+      <div class="card-content">
+        <div class="card-value">53%</div>
+        <a href="/button/monitor.php">More info</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">User Registrations</div>
+      <div class="card-content">
+        <div class="card-value">44</div>
+        <a href="button/registrasi.php">More info</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Button</div>
+      <div class="card-content">
+        <a href="button/esp_iot/index.php">More info</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+  </script>
+</body>
+</html>
